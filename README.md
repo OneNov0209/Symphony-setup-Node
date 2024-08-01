@@ -106,3 +106,29 @@ symphonyd keys add wallet --recover
 sudo systemctl restart symphonyd
 sudo journalctl -u symphonyd -f -o cat
 ```
+
+## Check Sync ( If False than go to create validator )
+
+```bash
+symphonyd status 2>&1 | jq
+```
+
+## Create Validator
+
+```bash
+symphonyd tx staking create-validator \
+--amount=1000000note \
+--moniker="$Your_Validator_Name" \
+--identity="" \
+--details="" \
+--website="" \
+--from $WALLET \
+--commission-rate 0.05 \
+--commission-max-rate 0.2 \
+--commission-max-change-rate 0.05 \
+--min-self-delegation 1 \
+--pubkey $(symphonyd tendermint show-validator) \
+--chain-id symphony-testnet-2 \
+--fees=800note \
+-y
+```
