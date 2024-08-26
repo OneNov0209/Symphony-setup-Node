@@ -32,9 +32,7 @@ go version
 
 ```bash
 cd $HOME
-
 rm -rf symphony
-
 git clone https://github.com/Orchestra-Labs/symphony.git
 cd symphony
 git checkout v0.3.0
