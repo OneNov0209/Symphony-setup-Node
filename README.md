@@ -32,10 +32,12 @@ go version
 
 ```bash
 cd $HOME
+
 rm -rf symphony
+
 git clone https://github.com/Orchestra-Labs/symphony.git
 cd symphony
-git checkout v0.2.1
+git checkout v0.3.0
 make install
 symphonyd version
 ```
@@ -45,19 +47,19 @@ symphonyd version
 Ganti `NodeName` dengan moniker Anda sendiri.
 
 ```bash
-symphonyd init NodeName --chain-id=symphony-testnet-2
+symphonyd init NodeName --chain-id=symphony-testnet-3
 ```
 
 ## Unduh Genesis
 
 ```bash
-wget -O $HOME/.symphonyd/config/genesis.json https://raw.githubusercontent.com/Orchestra-Labs/symphony/main/networks/symphony-testnet-2/genesis.json
+curl -Ls https://ss-t.symphony.nodestake.org/genesis.json > $HOME/.symphonyd/config/genesis.json 
 ```
 
 ## Unduh Addrbook
 
 ```bash
-wget -O $HOME/.symphonyd/config/addrbook.json https://raw.githubusercontent.com/vinjan23/Testnet.Guide/main/Symphony/addrbook.json
+curl -Ls https://ss-t.symphony.nodestake.org/addrbook.json > $HOME/.symphonyd/config/addrbook.json
 ```
 
 ## Buat Service
