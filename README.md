@@ -51,7 +51,7 @@ symphonyd init NodeName --chain-id=symphony-testnet-3
 ## Unduh Genesis
 
 ```bash
-curl -Ls https://ss-t.symphony.nodestake.org/genesis.json > $HOME/.symphonyd/config/genesis.json 
+wget -O $HOME/.symphonyd/config/genesis.json https://raw.githubusercontent.com/Orchestra-Labs/symphony/main/networks/symphony-testnet-3/genesis.json
 ```
 
 ## Unduh Addrbook
