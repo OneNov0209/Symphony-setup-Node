@@ -35,7 +35,7 @@ cd $HOME
 rm -rf symphony
 git clone https://github.com/Orchestra-Labs/symphony.git
 cd symphony
-git checkout v0.3.0
+git checkout v0.4.1
 make install
 symphonyd version
 ```
@@ -45,19 +45,19 @@ symphonyd version
 Ganti `NodeName` dengan moniker Anda sendiri.
 
 ```bash
-symphonyd init NodeName --chain-id=symphony-testnet-3
+symphonyd init NodeName --chain-id=symphony-testnet-4
 ```
 
 ## Unduh Genesis
 
 ```bash
-wget -O $HOME/.symphonyd/config/genesis.json https://raw.githubusercontent.com/Orchestra-Labs/symphony/main/networks/symphony-testnet-3/genesis.json
+wget -O $HOME/.symphonyd/config/genesis.json https://raw.githubusercontent.com/Orchestra-Labs/symphony/refs/heads/main/networks/symphony-testnet-4/genesis.json
 ```
 
 ## Unduh Addrbook
 
 ```bash
-curl -Ls https://ss-t.symphony.nodestake.org/addrbook.json > $HOME/.symphonyd/config/addrbook.json
+wget -O $HOME/.symphonyd/config/addrbook.json https://raw.githubusercontent.com/vinjan23/Testnet.Guide/refs/heads/main/Symphony/addrbook.json
 ```
 
 ## Buat Service
@@ -83,8 +83,13 @@ sudo systemctl enable symphonyd
 ## Unduh Snapshot (opsional)
 
 ```bash
-SNAP_NAME=$(curl -s https://ss-t.symphony.nodestake.org/ | egrep -o ">20.*\.tar.lz4" | tr -d ">")
-curl -o - -L https://ss-t.symphony.nodestake.top/${SNAP_NAME}  | lz4 -c -d - | tar -x -C $HOME/.symphonyd
+sudo systemctl stop symphonyd
+cp $HOME/.symphonyd/data/priv_validator_state.json $HOME/.symphonyd/priv_validator_state.json.backup
+rm -rf $HOME/.symphonyd/data
+curl -L https://snap-t.vinjan.xyz./symphony/latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.symphonyd
+mv $HOME/.symphonyd/priv_validator_state.json.backup $HOME/.symphonyd/data/priv_validator_state.json
+sudo systemctl restart symphonyd
+sudo journalctl -u symphonyd -f -o cat
 ```
 
 ## Buat Wallet
@@ -128,7 +133,7 @@ symphonyd tx staking create-validator \
 --commission-max-change-rate 0.05 \
 --min-self-delegation 1 \
 --pubkey $(symphonyd tendermint show-validator) \
---chain-id symphony-testnet-2 \
+--chain-id symphony-testnet-4 \
 --fees=800note \
 -y
 ```
