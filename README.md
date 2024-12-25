@@ -16,6 +16,8 @@ I joined the Symphony Testnet to deepen my understanding of the Orchestralabs bl
 
 - **Explorer**: [testnet.ping.pub/symphony](https://testnet.ping.pub/symphony/staking/symphonyvaloper1cjdxm4urpdp42un8xjsdx6469h3nlx26smxv50)
 
+[![Screenshot-2024-12-25-17-53-45-704-com-kiwibrowser-browser-edit.jpg](https://i.postimg.cc/QxX0K485/Screenshot-2024-12-25-17-53-45-704-com-kiwibrowser-browser-edit.jpg)](https://postimg.cc/s1NptJZD)
+
 # Symphony Node Setup
 
 Instruksi ini menjelaskan cara mengatur node Symphony pada server Ubuntu.
