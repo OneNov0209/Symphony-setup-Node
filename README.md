@@ -154,5 +154,10 @@ symphonyd tx staking create-validator \
 -y
 ```
 
+## 📫 contact me
 
+- **Email**: [onenov0209@gmail.com](mailto:onenov0209@gmail.com)
+- **GitHub**: [OneNov0209](https://github.com/OneNov0209)
+- **Twitter**: [@Surya021292](https://x.com/Surya021292)
+- **Medium**: [OneNov Blog](https://medium.com/@OneNov02)
 
