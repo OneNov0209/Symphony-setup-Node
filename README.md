@@ -1,3 +1,13 @@
+## Spesifikasi Server
+- **CPU:** 4 Core  
+- **RAM:** 8 GB  
+- **Disk:** 160 GB SSD  
+- **OS:** Ubuntu 22.04
+
+![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)  
+![Docker](https://img.shields.io/badge/Tool-Docker-blue)  
+![Node Status](https://img.shields.io/badge/Node%20Status-Active-brightgreen)
+
 # Symphony Node Setup
 
 Instruksi ini menjelaskan cara mengatur node Symphony pada server Ubuntu.
@@ -137,3 +147,6 @@ symphonyd tx staking create-validator \
 --fees=800note \
 -y
 ```
+
+
+
