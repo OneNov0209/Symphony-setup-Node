@@ -286,6 +286,7 @@ sudo systemctl start oracle.service
 Check the logs:
 ```
 sudo journalctl -u oracle -f -o cat
+```
 
 ## 📫 contact me
 
