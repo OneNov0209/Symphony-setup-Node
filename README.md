@@ -156,6 +156,135 @@ symphonyd tx staking create-validator \
 --fees=800note \
 -y
 ```
+## -------------------------------------------------------------------------
+
+
+# ⛓️ Oracle Installation Guide
+
+This installation is exclusive to those who installed it from me. Those who install it elsewhere may encounter errors.
+
+---
+
+## ➡️ Prerequisites
+
+Run the following commands to prepare your system:
+
+```bash
+sudo apt -q update
+sudo apt -qy install curl git jq lz4 build-essential
+sudo apt -qy upgrade
+sudo apt-get update && apt-get install -y libssl-dev
+```
+
+###Install Python 3.10:
+
+```bash
+sudo apt update
+sudo apt install python3.10
+sudo apt install python3.10-venv
+```
+## ➡️ Installation Steps
+
+```bash
+cd $HOME
+rm -rf symphony
+git clone https://github.com/Orchestra-Labs/symphony
+cd symphony
+git checkout v0.4.1
+make build
+```
+Clone the Symphony Oracle Voter repository:
+```bash
+cd $HOME
+git clone https://github.com/cmancrypto/symphony-oracle-voter.git
+```
+Switch to the required version:
+```bash
+cd symphony-oracle-voter
+git checkout v0.0.5
+```
+If you are going to use your own RPC/API, edit /root/.symphonyd/config/config.toml:
+
+indexer = "kv"
+
+Don't forget to add your Symphony address and valoper address.
+
+### 1. Option --Default-- (keyring backend = os)
+
+Create an .env file:
+```bash
+cat <<EOF > .env
+VALIDATOR_ADDRESS= symphonyvaloperxxx
+VALIDATOR_ACC_ADDRESS= symphonyxxx
+KEY_PASSWORD= walletpassword;
+KEY_BACKEND = os
+SYMPHONY_LCD= https://api-symphonyd.vinjan.xyz # or http://localhost:35317 (default port 1317)
+TENDERMINT_RPC= https://rpc-symphonyd.vinjan.xyz # or http://localhost:35657 (default port 26657)
+EOF
+```
+
+## 2. Option --My Guide-- (keyring backend = test)
+
+Create an .env file:
+```bash
+cat <<EOF > .env
+VALIDATOR_ADDRESS= symphonyvaloperxxx
+VALIDATOR_ACC_ADDRESS= symphonyxxx
+KEY_BACKEND = test
+SYMPHONY_LCD= https://api-symphonyd.vinjan.xyz # or http://localhost:35317 (default port 1317)
+TENDERMINT_RPC= https://rpc-symphonyd.vinjan.xyz # or http://localhost:35657 (default port 26657)
+EOF
+```
+
+## ➡️ Proceed After Choosing Option 1 or Option 2
+
+Set up the Python environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+deactivate
+```
+
+## ➡️ Service File
+
+Create a systemd service for the Oracle:
+```bash
+sudo tee /etc/systemd/system/oracle.service > /dev/null << EOF
+[Unit]
+Description=Symphony Oracle
+After=network.target
+
+[Service]
+# Environment variables
+Environment="SYMPHONYD_PATH=/root/symphony/build/symphonyd"
+Environment="PYTHON_ENV=production"
+Environment="LOG_LEVEL=INFO"
+Environment="DEBUG=false"
+
+# Service configuration
+Type=simple
+User=root
+WorkingDirectory=/root/symphony-oracle-voter/
+ExecStart=/root/symphony-oracle-voter/venv/bin/python3 -u /root/symphony-oracle-voter/main.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+Reload systemd and enable the service:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable oracle.service
+sudo systemctl start oracle.service
+```
+Check the logs:
+```
+sudo journalctl -u oracle -f -o cat
 
 ## 📫 contact me
 
