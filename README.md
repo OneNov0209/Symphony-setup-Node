@@ -25,10 +25,6 @@ I joined the Symphony Testnet to deepen my understanding of the Orchestralabs bl
 
 Instruksi ini menjelaskan cara mengatur node Symphony pada server Ubuntu.
 
-## Prasyarat
-
-4 Cores, 8G Ram, 160G SSD, Ubuntu 22.04
-
 ```bash
 sudo apt update
 sudo apt-get install git curl build-essential make jq gcc snapd chrony lz4 tmux unzip bc -y
