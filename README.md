@@ -1,8 +1,3 @@
-## Spesifikasi Server
-- **CPU:** 4 Core  
-- **RAM:** 8 GB  
-- **Disk:** 160 GB SSD  
-- **OS:** Ubuntu 22.04
 
 ## Node Status
 My node has been running since August 1, 2024, with stable uptime and perfect synchronization.
@@ -17,6 +12,12 @@ I joined the Symphony Testnet to deepen my understanding of the Orchestralabs bl
 - **Explorer**: [testnet.ping.pub/symphony](https://testnet.ping.pub/symphony/staking/symphonyvaloper1cjdxm4urpdp42un8xjsdx6469h3nlx26smxv50)
 
 [![Screenshot-2024-12-25-17-53-45-704-com-kiwibrowser-browser-edit.jpg](https://i.postimg.cc/QxX0K485/Screenshot-2024-12-25-17-53-45-704-com-kiwibrowser-browser-edit.jpg)](https://postimg.cc/s1NptJZD)
+
+## Spesifikasi Server
+- **CPU:** 4 Core  
+- **RAM:** 8 GB  
+- **Disk:** 160 GB SSD  
+- **OS:** Ubuntu 22.04
 
 # Symphony Node Setup
 
