@@ -14,6 +14,8 @@ I joined the Symphony Testnet to deepen my understanding of the Orchestralabs bl
 ![Docker](https://img.shields.io/badge/Tool-Docker-blue)  
 ![Node Status](https://img.shields.io/badge/Node%20Status-Active-brightgreen)
 
+- **Explorer**: [Explorer](https://testnet.ping.pub/symphony/staking/symphonyvaloper1cjdxm4urpdp42un8xjsdx6469h3nlx26smxv50)
+
 # Symphony Node Setup
 
 Instruksi ini menjelaskan cara mengatur node Symphony pada server Ubuntu.
