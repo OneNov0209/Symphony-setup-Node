@@ -4,6 +4,12 @@
 - **Disk:** 160 GB SSD  
 - **OS:** Ubuntu 22.04
 
+## Node Status
+My node has been running since August 1, 2024, with stable uptime and perfect synchronization.
+
+## Reasons to Participate
+I joined the Symphony Testnet to deepen my understanding of the Orchestralabs blockchain protocol and contribute to the validator community.
+
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)  
 ![Docker](https://img.shields.io/badge/Tool-Docker-blue)  
 ![Node Status](https://img.shields.io/badge/Node%20Status-Active-brightgreen)
